@@ -25,6 +25,17 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
+          env:
+          - name: APISERVER
+            value: "https://kubernetes.default.svc"
+          - name: SERVICEACCOUNT
+            value: "/var/run/secrets/kubernetes.io/serviceaccount"
+          - name: NAMESPACE
+            value: "$(cat ${SERVICEACCOUNT}/namespace)"
+          - name: TOKEN
+            value: "$(cat ${SERVICEACCOUNT}/token)"
+          - name: CACERT
+            value: "${SERVICEACCOUNT}/ca.crt"
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
