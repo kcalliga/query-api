@@ -32,7 +32,7 @@ spec:
       volumes:
       - name: getnumberofworkers
         configMap:
-          name: getnumberofworkres
+          name: getnumberofworkers
           defaultMode: 0755
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
