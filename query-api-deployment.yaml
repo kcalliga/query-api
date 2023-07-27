@@ -22,6 +22,11 @@ spec:
           - /bin/sh
           - -c
           - 
+      volumes:
+      - name: getnumberofworkers
+        configMap:
+        name: getnumberofworkers
+        defaultMode: 0777
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
