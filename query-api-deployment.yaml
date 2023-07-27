@@ -18,6 +18,9 @@ spec:
       containers:
         - name: query-api
           image: registry.access.redhat.com/ubi8/ubi-minimal:8.8-1014
+          command:
+            - sleep
+            - infinity
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
