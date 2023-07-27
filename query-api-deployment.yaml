@@ -21,11 +21,11 @@ spec:
           command:
           - /bin/sh
           - -c
-          - /getNumberofWorkers
+          - /getnumberofworkers
       volumes:
-      - name: getNumberofWorkers
+      - name: getnumberofworkers
         configMap:
-        name: getNumberofWorkers
+        name: getnumberofworkers
         defaultMode: 0777
           resources: {}
           terminationMessagePath: /dev/termination-log
@@ -40,8 +40,8 @@ spec:
       serviceAccountName: query-api
       serviceAccount: query-api
       volumeMounts:
-      - mountPath: /getNumberofWorkers
-        name: getNumberofWorkers
+      - mountPath: /getnumberofworkers
+        name: getnumberofworkers
   strategy:
     type: RollingUpdate
     rollingUpdate:
