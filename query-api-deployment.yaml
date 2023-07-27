@@ -31,6 +31,8 @@ spec:
       securityContext: {}
       schedulerName: default-scheduler
       imagePullSecrets: []
+      serviceAccountName: query-api
+      serviceAccount: query-api
   strategy:
     type: RollingUpdate
     rollingUpdate:
