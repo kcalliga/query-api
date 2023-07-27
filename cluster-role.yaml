@@ -12,9 +12,9 @@ metadata:
   name: query-api
 rules:
 - apiGroups:
-  - "machineconfiguration.openshift.io"
+  - machineconfiguration.openshift.io
   resources:
-  - "machineconfigpools"
+  - machineconfigpools
   verbs:
   - get
   - list
