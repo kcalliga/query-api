@@ -4,4 +4,10 @@ metadata:
   name: getNumberofWorkers
 data:
   getNumberofWorkers.sh: |
+    APISERVER=https://kubernetes.default.svc
+    SERVICEACCOUNT=/var/run/secrets/kubernetes.io/serviceaccount
+    NAMESPACE=$(cat ${SERVICEACCOUNT}/namespace)
+    TOKEN=$(cat ${SERVICEACCOUNT}/token)
+    CACERT=${SERVICEACCOUNT}/ca.crt
+    curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/apis/machineconfiguration.openshift.io/v1/machineconfigpools/woker|grep machineCount
     
