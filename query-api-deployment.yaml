@@ -21,11 +21,11 @@ spec:
           command:
           - /bin/sh
           - -c
-          - 
+          - /getNumberofWorkers
       volumes:
-      - name: getnumberofworkers
+      - name: getNumberofWorkers
         configMap:
-        name: getnumberofworkers
+        name: getNumberofWorkers
         defaultMode: 0777
           resources: {}
           terminationMessagePath: /dev/termination-log
@@ -39,6 +39,9 @@ spec:
       imagePullSecrets: []
       serviceAccountName: query-api
       serviceAccount: query-api
+      volumeMounts:
+      - mountPath: /getNumberofWorkers
+        name: getNumberofWorkers
   strategy:
     type: RollingUpdate
     rollingUpdate:
