@@ -6,7 +6,7 @@ data:
     NAMESPACE=$(cat ${SERVICEACCOUNT}/namespace)
     TOKEN=$(cat ${SERVICEACCOUNT}/token)
     CACERT=${SERVICEACCOUNT}/ca.crt
-    curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/apis/machineconfiguration.openshift.io/v1/machineconfigpools/worker|grep machineCount
+    curl -s --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/apis/machineconfiguration.openshift.io/v1/machineconfigpools/worker|grep machineCount
 kind: ConfigMap
 metadata:
   name: getnumberofworkers
