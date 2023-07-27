@@ -18,19 +18,23 @@ spec:
       containers:
         - name: query-api
           image: registry.access.redhat.com/ubi8/ubi-minimal:8.8-1014
+          volumeMounts:
+          - name: getnumberofworkers
+        mountPath: /tmp/getnumberofworkers
+        subPath: getnumberofworkers
           command:
           - /bin/sh
           - -c
           - /tmp/getnumberofworkers
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always          
       volumes:
       - name: getnumberofworkers
         configMap:
           name: getnumberofworkres
           defaultMode: 0755
-          resources: {}
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          imagePullPolicy: Always
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
@@ -39,10 +43,6 @@ spec:
       imagePullSecrets: []
       serviceAccountName: query-api
       serviceAccount: query-api
-      volumeMounts:
-      - name: getnumberofworkers
-        mountPath: /tmp/getnumberofworkers
-        subPath: getnumberofworkers
   strategy:
     type: RollingUpdate
     rollingUpdate:
