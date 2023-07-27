@@ -27,7 +27,7 @@ spec:
             NAMESPACE=$(cat ${SERVICEACCOUNT}/namespace)
             TOKEN=$(cat ${SERVICEACCOUNT}/token)
             CACERT=${SERVICEACCOUNT}/ca.crt
-            curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/api
+            curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/apis/machineconfiguration.openshift.io/v1/machineconfigpools/woker|grep machineCount
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
