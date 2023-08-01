@@ -17,19 +17,9 @@ kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
-  creationTimestamp: "2023-06-07T20:22:18Z"
   generation: 1
   name: dgedg2-config-listener
   namespace: testdg
-  ownerReferences:
-  - apiVersion: infinispan.org/v1
-    blockOwnerDeletion: true
-    controller: true
-    kind: Infinispan
-    name: dgedg2
-    uid: a7c16ebf-1047-408e-a622-0bb91932782d
-  resourceVersion: "257946411"
-  uid: 3d84b1b8-09bd-434c-b4e0-602cd20ce1bc
 spec:
   progressDeadlineSeconds: 600
   replicas: $WORKERNUMBER
